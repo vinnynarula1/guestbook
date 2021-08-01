@@ -2,8 +2,10 @@
 
 tone_analyzer= "Tone Analyzer-3l"
 
-B64_URL=$(ibmcloud resource service-keys --instance-name "$tone_analyzer" --output json| jq .[0].credentials.url -j | base64 -w 0)
-B64_APIKEY=$(ibmcloud resource service-keys --instance-name "$tone_analyzer" --output json| jq .[0].credentials.apikey -j | base64 -w 0)
+
+
+B64_URL="https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/6e77633d-f79c-4417-83ce-78ce773458ba"
+B64_APIKEY="tcZ6OXr7n2sLq03qHt_yKgNCXoCKE5Ji9r2CdgmOUDj8"
 
 cat <<EOF | oc apply -f -
 apiVersion: v1
